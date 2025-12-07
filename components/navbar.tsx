@@ -4,7 +4,7 @@
 import { useState } from "react" // Hook para manejar estados
 import Link from "next/link" // Componente para navegación
 import { usePathname } from "next/navigation" // Hook para obtener la ruta actual
-import { Menu, Search, X, User, LogOut } from "lucide-react" // Iconos para la interfaz
+import { Menu, Search, X, User, LogOut, BarChart3 } from "lucide-react" // Iconos para la interfaz
 
 // Componentes de la interfaz de usuario
 import { Button } from "@/components/ui/button"
@@ -44,32 +44,32 @@ export function Navbar() {
 
           {/* Navegación para escritorio */}
           <nav className="hidden md:flex items-center gap-2">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className={`relative transition-all duration-300 px-4 py-2 rounded-md ${pathname === "/" ? "text-teal-700 font-semibold bg-teal-100 after:absolute after:bottom-0 after:left-0 after:w-full after:h-1.5 after:bg-teal-600" : "text-gray-700 hover:text-teal-700 hover:bg-teal-50 after:absolute after:bottom-0 after:left-0 after:w-full after:h-1.5 after:bg-teal-600 after:transform after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"}`}
             >
               Inicio
             </Link>
-            <Link 
-              href="/destinos" 
+            <Link
+              href="/destinos"
               className={`relative transition-all duration-300 px-4 py-2 rounded-md ${pathname === "/destinos" ? "text-teal-700 font-semibold bg-teal-100 after:absolute after:bottom-0 after:left-0 after:w-full after:h-1.5 after:bg-teal-600" : "text-gray-700 hover:text-teal-700 hover:bg-teal-50 after:absolute after:bottom-0 after:left-0 after:w-full after:h-1.5 after:bg-teal-600 after:transform after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"}`}
             >
               Destinos
             </Link>
-            <Link 
-              href="/planificador" 
+            <Link
+              href="/planificador"
               className={`relative transition-all duration-300 px-4 py-2 rounded-md ${pathname === "/planificador" ? "text-teal-700 font-semibold bg-teal-100 after:absolute after:bottom-0 after:left-0 after:w-full after:h-1.5 after:bg-teal-600" : "text-gray-700 hover:text-teal-700 hover:bg-teal-50 after:absolute after:bottom-0 after:left-0 after:w-full after:h-1.5 after:bg-teal-600 after:transform after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"}`}
             >
               Planificador
             </Link>
-            <Link 
-              href="/experiencias" 
+            <Link
+              href="/experiencias"
               className={`relative transition-all duration-300 px-4 py-2 rounded-md ${pathname === "/experiencias" ? "text-teal-700 font-semibold bg-teal-100 after:absolute after:bottom-0 after:left-0 after:w-full after:h-1.5 after:bg-teal-600" : "text-gray-700 hover:text-teal-700 hover:bg-teal-50 after:absolute after:bottom-0 after:left-0 after:w-full after:h-1.5 after:bg-teal-600 after:transform after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"}`}
             >
               Experiencias
             </Link>
-            <Link 
-              href="/mapa" 
+            <Link
+              href="/mapa"
               className={`relative transition-all duration-300 px-4 py-2 rounded-md ${pathname === "/mapa" ? "text-teal-700 font-semibold bg-teal-100 after:absolute after:bottom-0 after:left-0 after:w-full after:h-1.5 after:bg-teal-600" : "text-gray-700 hover:text-teal-700 hover:bg-teal-50 after:absolute after:bottom-0 after:left-0 after:w-full after:h-1.5 after:bg-teal-600 after:transform after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"}`}
             >
               Mapa Interactivo
@@ -80,6 +80,13 @@ export function Navbar() {
             >
               <User className="h-5 w-5" />
               <span className="hidden md:inline">Perfil</span>
+            </Link>
+            <Link
+              href="/preset-dashboard"
+              className={`relative flex items-center gap-2 transition-all duration-300 px-4 py-2 rounded-md ${pathname === "/preset-dashboard" ? "text-teal-700 font-semibold bg-teal-100 after:absolute after:bottom-0 after:left-0 after:w-full after:h-1.5 after:bg-teal-600" : "text-gray-700 hover:text-teal-700 hover:bg-teal-50 after:absolute after:bottom-0 after:left-0 after:w-full after:h-1.5 after:bg-teal-600 after:transform after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"}`}
+            >
+              <BarChart3 className="h-5 w-5" />
+              <span className="hidden md:inline">Analytics</span>
             </Link>
           </nav>
 
@@ -179,6 +186,14 @@ export function Navbar() {
             >
               <User className="h-5 w-5" />
               <span>Perfil</span>
+            </Link>
+            <Link
+              href="/preset-dashboard"
+              className={`flex items-center gap-2 px-3 py-2 rounded-md ${pathname === "/preset-dashboard" ? "text-teal-700 font-semibold bg-teal-100" : "text-gray-700 hover:text-teal-700 hover:bg-teal-50"}`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <BarChart3 className="h-5 w-5" />
+              <span>Analytics</span>
             </Link>
             <div className="pt-4 border-t flex flex-col space-y-3">
               <Button
